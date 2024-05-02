@@ -1,0 +1,16 @@
+int tmult_ok(int x, int y) {
+  int p = x * y;
+  !x || p / x == y;
+}
+
+1) x = 0;
+
+int tmult_ok(int x, int y) {
+  int p = 0 * y; // => p = 0;
+  !0 || p / x == y; // => !0 == 1 => 1 == true - Ok
+}
+// p = x * y;
+// q = p / x;
+// -------------
+// q = (x * y) / x => q = y;
+// Overflow => p = x * y + t2(w); => x = MAX; y = 2: MAX * 2 = 0111 * 0010 => 1110 = -2; 
