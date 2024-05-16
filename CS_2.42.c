@@ -5,7 +5,7 @@ int32_t div16(int32_t);
 
 int main() {
     
-    int32_t x = -67;
+    int32_t x = 128;
     
     int32_t a = div16(x);
     printf("%d\n", a);
@@ -14,5 +14,5 @@ int main() {
 
 
 int32_t div16(int32_t x) {
-    return x >> 4;
-} 
+    return (x >> 4) - (x >> 31);
+}
