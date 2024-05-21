@@ -9,3 +9,28 @@ x = x_min => 1000 0000 0000 0000 0000 0000 0000 0000
 7. x * ~y + uy * ux == -x => x = 0001 y = 1000 = > x * ~y = 0001 * 0111 => 0001 * 1000 => 0111 * 1000 = 1111 - Fail
 -------------------------------------------------------------------------------------------------------------------
 uy * ux =>
+//-----------------------------------------------------------------------------------------------------------------
+7. x * ~y + uy * ux == -x => x = 0001 y = 1000 = > x * ~y = 0001 * 0111 => 0001 * 1000 => 0111 * 1000 = 1111 - Fail
+x = -128, y = -127, ~y = 126, ux = 128, uy = 129:
+#include <stdio.h>
+#include <limits.h>
+
+void main()
+{
+    unsigned char ux, uy;
+    
+    for(signed char x = SCHAR_MIN; x <= SCHAR_MAX; x++) {
+        for(signed char y = SCHAR_MIN; y <= SCHAR_MAX; y++) {
+            
+            ux = (unsigned char)x;
+            uy = (unsigned char)y;
+            
+            int ans = x * (~y) + uy * ux == - 1 * x;
+            
+            if(ans == 0){
+                printf("x = %i, y = %i, ~y = %i, ux = %u, uy = %u:", x, y, ~y, ux, uy);
+                return;
+            }
+        }
+    }
+}
