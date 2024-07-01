@@ -4,7 +4,7 @@
 #define N_BITS 2
 #define BITS 5 //set bits
 
-const int Biase = BITS - 1;
+const int Biase = K_BITS + N_BITS;
 char number_in_bits[BITS];
 
 int multiplyer(int);
@@ -20,8 +20,17 @@ int main()
     int number_of_variants = multiplyer(Biase); // number of variants
     for(int i = 0; i < number_of_variants; i++) {
         bits_maker(i);
-        printf(" %s", number_in_bits);
-        printf(" \t\t%d", number_multyplayer(number_in_bits, 1, 2));
+        printf("\t\t");
+        printf("%s", number_in_bits);
+        
+        int e = number_multyplayer(number_in_bits, 1, 2);
+        printf("\t\t%d", e);
+        
+        int E = e + 1 - (BITS - K_BITS - N_BITS);
+        printf("\t%d", E);
+        
+        printf("\t%d", multiplyer(E));
+        
         printf("\n");
     }
     return 0;
@@ -29,7 +38,7 @@ int main()
 
 
 void print_header() {
-    printf("Description\tBiase\te\tE\t2^E\tf\tM\t2^E*M\tV\tDecemal\n");
+    printf("Description\tByteView\te\tE\t2^E\tf\tM\t2^E*M\tV\tDecemal\n");
 }
 
 void bits_maker(int number) {
@@ -45,6 +54,7 @@ int number_multyplayer(char* arr, int position, int count) {
     for(int i = count - 1, j = 0; i >= 0; i--, j++) {
         result += (arr[position + i] - '0') * power_of_two(j);
     }
+    return result;
 }
 
 int power_of_two(int numb){
