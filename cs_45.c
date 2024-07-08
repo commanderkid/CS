@@ -21,16 +21,23 @@ int main()
     for(int i = 0; i < number_of_variants; i++) {
         bits_maker(i);
         printf("\t\t");
+        //ByteView
         printf("%s", number_in_bits);
         
+        //e
         int e = number_multyplayer(number_in_bits, 1, 2);
         printf("\t\t%d", e);
         
+        //E
         int E = e + 1 - (BITS - K_BITS - N_BITS);
         printf("\t%d", E);
         
+        // 2^E
         printf("\t%d", multiplyer(E));
         
+        // f
+        int last_bits = number_multyplayer(number_in_bits, 3, 2);
+        printf("\t%d/%d", last_bits,  power_of_two(N_BITS));
         printf("\n");
     }
     return 0;
