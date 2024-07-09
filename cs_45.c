@@ -29,7 +29,7 @@ int main()
         printf("\t\t%d", e);
         
         //E
-        int E = e + 1 - (BITS - K_BITS - N_BITS);
+        int E = e - (BITS - K_BITS - N_BITS)  + (0 == e ? 1 : 0); // shift => bias = 2 ^ (2-1) - 1 = 1 
         printf("\t%d", E);
         
         // 2^E
