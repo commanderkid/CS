@@ -33,12 +33,23 @@ int main()
         printf("\t%d", E);
         
         // 2^E
-        printf("\t%d", multiplyer(E));
+        int two_E = multiplyer(E);
+        printf("\t%d", two_E);
         
         // f
         int last_bits = number_multyplayer(number_in_bits, 3, 2);
         printf("\t%d/%d", last_bits,  power_of_two(N_BITS));
+        
+        // M
+        int M_bits = 0 == e ? last_bits + 0 : last_bits + 4;
+        printf("\t%d/%d", M_bits,  power_of_two(N_BITS));
+        
+        // 2^E*M
+        int two_e_counter = two_E * M_bits; 
+        printf("\t%d/%d", two_e_counter,  power_of_two(N_BITS));
         printf("\n");
+        
+        // V
     }
     return 0;
 }
