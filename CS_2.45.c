@@ -45,11 +45,40 @@ int main()
         printf("\t%d/%d", M_bits,  power_of_two(N_BITS));
         
         // 2^E*M
-        int two_e_counter = two_E * M_bits; 
-        printf("\t%d/%d", two_e_counter,  power_of_two(N_BITS));
-        printf("\n");
+        int two_e_counter = two_E * M_bits;
+        int power_two = power_of_two(N_BITS);
+        printf("\t%d/%d", two_e_counter,  power_two);
+        
         
         // V
+        if(two_e_counter % power_two == 0)
+            printf("\t%d", two_e_counter / power_two);
+        else
+        {
+            int integer = two_e_counter / 4;
+            int odd = two_e_counter % 4;
+            if(0 == integer)
+            {
+                if(power_two % two_e_counter == 0)
+                    printf("\t%d/%d", 1, power_two / two_e_counter);
+                else
+                    printf("\t%d/%d", two_e_counter, power_two);
+            }
+            else
+            {
+                if(power_two % odd == 0)
+                    printf("\t%d(%d/%d)", integer, 1, odd);
+                else
+                    printf("\t%d(%d/%d)", integer, odd, power_two);
+            }
+        }
+        
+        
+        // Decemal
+        printf("\t%0.2f", (float)two_e_counter / power_two);
+        
+        printf("\n");
+        
     }
     return 0;
 }
