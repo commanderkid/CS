@@ -1,0 +1,10 @@
+*Непонятно
+
+V = (-1)^s * M * 2^E
+
+   s      M              E
+[0||1]       [power of 2] (- >= 0 <= +)
+
+[1][..k][..n]
+k,n      (-1)^s *2E    * M  
+32 bit => [s][kkkkkkkk][nnnnnnnnnnnnnnnnnnnnnnn]
