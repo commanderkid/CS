@@ -1,0 +1,11 @@
+x - int, 2^16
+f - float, 2^32
+d - double, 2^64
+=======================
+1. x == (int)(double)x         - true
+2. x == (int)(float)x          - true
+3. d == (double)(float)d       - false
+4. f == (float)(double)f       - true
+5. f == -(-f)F. 1.0/2 == 1/2.0 - true 1.0 / 2 == 1/ 2.0 - true
+6. d * d >= 0.0                - true
+7 (f + d) - f == d             - true
