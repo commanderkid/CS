@@ -10,21 +10,37 @@ void show_bytes(byte_pointer start, size_t len)
 2.56 (+)
 
 2.57 (+)
-void show_short(short sh)                    
-{                                         
-    short* pointer = &sh;
-    int size_of_short = sizeof(short);
-    for(int i = 0; i < size_of_short; i++)
-      printf(" %.2x", pointer[i]);
-    printf("\n");
+void show_short(short sh) {
+    byte* p = &sh;
+    int length = sizeof(short);
+    for(int i = 0; i < length; i++) {
+        printf(" %.2x", p[i] & 0xff);
+    }
 }
 
-void show_long(long lg)
-{
-    char* pointer = &lg;
-    int size = sizeof(long);
-    for(int i = 0; i < size; i++)
-    {
-      printf(" %.2x", pointer[i]);
+void show_long(long lg){
+    byte* p = &lg;
+    int length = sizeof(long);
+    for(int i = 0; i < length; i++) {
+        printf(" %2x", p[i] & 0xff);
     }
+}
+
+void show_double(double db) {
+    long* l = &db;
+    int longInbyts = sizeof(long) * 8;
+    for(int i = 0; i < longInbyts; i++)
+    {
+        int b = *l & 1;
+        *l = *l >> 1;
+        printf("%d", b);
+    }
+}
+
+2.58
+int is_little_endian()
+{
+    int test = 1;
+    char* p = &test;
+    return (char)p[0];
 }
