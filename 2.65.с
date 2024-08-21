@@ -1,0 +1,47 @@
+#include <stdio.h>
+
+int odd_ones(unsigned);
+
+// Упражнение 2.65
+int main()
+{
+    printf("Hello World");
+    
+    int test1 = odd_ones(7);
+    
+    int test2 = odd_ones(3);
+    
+
+    return 0;
+}
+
+// Возвращает 1, если x содержит нечетное количество 1
+
+//0000 0000 0000 0000 0000 0000 0000 0000
+//0000 0 ч
+//0001 1 н 
+//0010 2 н
+//0011 3 ч
+//0100 4 н
+//0101 5 ч
+//0110 6 ч
+//0111 7 н
+//1000 8 н
+//1001 9 ч
+//1010 A ч
+//1011 B н
+//1100 C ч
+//1101 D н
+//1110 E н
+//1111 F ч
+
+int odd_ones(unsigned x) {
+    int length = sizeof(unsigned) * 8;
+    int count = 0;
+    for(int i = 0; i < length; i++)
+    {
+        count += (x & 1);
+        x = (x >> 1);
+    }
+    return count;
+}
