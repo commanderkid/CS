@@ -13,3 +13,23 @@ int main()
 int is_shifts_are_arithmetic(){
     return (-1 >> 1) < 0;
 }
+
+// ex 2.61
+
+// x = 0000 0000 0000 0000 0000 0000 0000 0000 - int32
+// Хотябы 1 бине не 0 => 1 ! 0
+// Хотябы 1 бит 0 => 1 ! 0
+// 1 бит в младшем байте не 0 => 1 ! 0
+// 1 бит в старшем бате не 0 => 1 ! 0
+
+#include <stdio.h>
+
+int HasOne(int);
+
+void main() {
+    printf("%d", HasOne(0xAAAAAAAA));
+}
+
+int HasOne(int number) {
+    return number && 0xFFFFFFFF;
+}
