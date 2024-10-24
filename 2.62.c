@@ -32,4 +32,9 @@ void main() {
 
 int HasOne(int number) {
     return number && 0xFFFFFFFF;
+    // ~0 & number != ~0
+}
+
+int HasZero(int number) {
+    return (~number) > 0;
 }
